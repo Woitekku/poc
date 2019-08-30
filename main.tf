@@ -1,4 +1,5 @@
 # root/main.tf
+
 provider "aws" {
     profile = "${var.aws_profile}"
     region = "${var.aws_region}"
@@ -13,6 +14,7 @@ module "iam" {
     poc_prv_rt = "${module.networking.poc_prv_rt}"
     poc_bucket = "${module.storage.poc_bucket}"
 }
+
 module "networking" {
     source = "./networking"
     hosted_zone_name = "${var.hosted_zone_name}"

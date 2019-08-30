@@ -35,30 +35,30 @@ resource "aws_eip_association" "poc-eip-bastion" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "poc-bastion-auto-recovery-alarm" {
-  alarm_name          = "EC2AutoRecover-${aws_instance.poc-bastion.id}"
+  alarm_name = "EC2AutoRecover-${aws_instance.poc-bastion.id}"
   comparison_operator = "GreaterThanOrEqualToThreshold"
-  evaluation_periods  = "3"
-  metric_name         = "StatusCheckFailed_System"
-  namespace           = "AWS/EC2"
-  period              = "60"
-  statistic           = "Minimum"
+  evaluation_periods = "3"
+  metric_name = "StatusCheckFailed_System"
+  namespace = "AWS/EC2"
+  period = "60"
+  statistic = "Minimum"
 
   dimensions = {
     InstanceId = "${aws_instance.poc-bastion.id}"
   }
 
   alarm_actions = ["arn:aws:automate:${var.region}:ec2:recover"]
-  threshold         = "1"
+  threshold = "1"
   alarm_description = "Auto recover the EC2 instance if Status Check fails."
 }
 
 resource "aws_route53_health_check" "poc-route53-health-check" {
-  ip_address        = "${aws_eip.poc-eip-bastion.public_ip}"
-  port              = 80
-  type              = "HTTP"
-  resource_path     = "${var.health_check_path}"
+  ip_address = "${aws_eip.poc-eip-bastion.public_ip}"
+  port = 80
+  type = "HTTP"
+  resource_path = "${var.health_check_path}"
   failure_threshold = "5"
-  request_interval  = "10"
+  request_interval = "10"
 
   tags = {
     Name = "poc-route53-health-check"
@@ -75,8 +75,8 @@ resource "aws_route53_record" "poc-route53-record" {
     weight = 10
   }
 
-  set_identifier  = "${aws_instance.poc-bastion.id}"
-  records         = ["${aws_eip.poc-eip-bastion.public_ip}"]
+  set_identifier = "${aws_instance.poc-bastion.id}"
+  records = ["${aws_eip.poc-eip-bastion.public_ip}"]
   health_check_id = "${aws_route53_health_check.poc-route53-health-check.id}"
 }
 
