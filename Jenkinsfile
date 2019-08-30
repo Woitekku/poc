@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage("git clone") {
             steps {
-                git 'https://github.com/WojciechCichy/cloudificationpoc.git'
+                git 'https://github.com/WojciechCichy/poc.git'
             }
         }
         
