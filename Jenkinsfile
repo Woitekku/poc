@@ -14,7 +14,7 @@ pipeline {
         
         stage("tf init") {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'deda889e-fb1b-4a88-9d8d-0d491da9d735', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY')]) {
+                withCredentials([usernamePassword(credentialsId: '9984d9b6-c595-4db1-b67c-e3a3c7f95ce4', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY')]) {
                     sh "terraform init"
                 }
             }
@@ -28,7 +28,7 @@ pipeline {
         
         stage("tf plan") {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'deda889e-fb1b-4a88-9d8d-0d491da9d735', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY')]) {
+                withCredentials([usernamePassword(credentialsId: '9984d9b6-c595-4db1-b67c-e3a3c7f95ce4', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY')]) {
                     sh "terraform plan -out=tfplan -input=false -var aws_access_key_id=${AWS_ACCESS_KEY_ID} -var aws_secret_access_key=${AWS_SECRET_ACCESS_KEY}"
                 }
             }
@@ -36,7 +36,7 @@ pipeline {
         
         stage("tf apply") {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'deda889e-fb1b-4a88-9d8d-0d491da9d735', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY')]) {
+                withCredentials([usernamePassword(credentialsId: '9984d9b6-c595-4db1-b67c-e3a3c7f95ce4', usernameVariable: 'AWS_ACCESS_KEY_ID', passwordVariable: 'AWS_SECRET_ACCESS_KEY')]) {
                     sh "terraform apply -auto-approve tfplan"
                 }
             }
