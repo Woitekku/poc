@@ -17,3 +17,4 @@ variable "instance_type" {}
 variable "asg_ec2_min_size" {}
 variable "asg_ec2_max_size" {}
 variable "certificate_arn" {}
+variable "health_check_path" {}

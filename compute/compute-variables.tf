@@ -17,3 +17,5 @@ variable "poc_s3_access_profile" {}
 variable "asg_ec2_min_size" {}
 variable "asg_ec2_max_size" {}
 variable "poc_alb_tg" {}
+variable "hosted_zone_name" {}
+variable "health_check_path" {}
