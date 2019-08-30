@@ -12,3 +12,4 @@ ami = "ami-ebd02392"
 instance_type = "t2.micro"
 asg_ec2_min_size = 3
 asg_ec2_max_size = 5
+certificate_arn = "arn:aws:acm:eu-west-1:040136271453:certificate/74e0dc47-160a-491e-9acd-f7965ec32ce5"

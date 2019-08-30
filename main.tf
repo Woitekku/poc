@@ -19,6 +19,7 @@ module "networking" {
     delegation_set = "${var.delegation_set}"
     vpc_cidr = "${var.vpc_cidr}"
     accessip = "${var.accessip}"
+    certificate_arn = "${var.certificate_arn}"
 }
 
 module "storage" {

@@ -188,12 +188,12 @@ resource "aws_security_group" "poc-alb-sg" {
     cidr_blocks = ["${var.accessip}"]
   }
   
-#  ingress {
-#    from_port = 443
-#    to_port = 443
-#    protocol = "tcp"
-#    cidr_blocks = ["${var.accessip}"]
-#  }
+  ingress {
+    from_port = 443
+    to_port = 443
+    protocol = "tcp"
+    cidr_blocks = ["${var.accessip}"]
+  }
   
   egress {
     from_port = 0
@@ -308,18 +308,18 @@ resource "aws_alb_listener" "poc-alb-listener-http" {
 }
 
 # Application Load Balancer HTTPS Listener
-#resource "aws_alb_listener" "poc-alb-listener-https" {
-#  load_balancer_arn = "${aws_alb.poc-alb.arn}"
-#  port = "443"
-#  protocol = "HTTPS"
-#  ssl_policy = "ELBSecurityPolicy-2016-08"
-#  certificate_arn = "${aws_acm_certificate_validation.poc-ssl-cert.certificate_arn}"
-#  
-#  default_action {
-#    target_group_arn = "${aws_alb_target_group.poc-alb-tg.arn}"
-#    type = "forward"
-#  }
-#}
+resource "aws_alb_listener" "poc-alb-listener-https" {
+  load_balancer_arn = "${aws_alb.poc-alb.arn}"
+  port = "443"
+  protocol = "HTTPS"
+  ssl_policy = "ELBSecurityPolicy-2016-08"
+  certificate_arn = "${var.certificate_arn}"
+  
+  default_action {
+    target_group_arn = "${aws_alb_target_group.poc-alb-tg.arn}"
+    type = "forward"
+  }
+}
 
 # Route53 POC domain 
 resource "aws_route53_record" "poc" {
