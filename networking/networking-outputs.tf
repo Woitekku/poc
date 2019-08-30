@@ -33,5 +33,5 @@ output "poc_alb_tg" {
 }
 
 output "poc_route53_zone" {
-    value = "${aws_route53_zone.poc-route53-zone}""
+    value = "${aws_route53_zone.poc-route53-zone}"
 }
