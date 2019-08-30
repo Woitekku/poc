@@ -53,6 +53,6 @@ module "compute" {
     poc_alb_tg = "${module.networking.poc_alb_tg}"
     asg_ec2_min_size = "${var.asg_ec2_min_size}"
     asg_ec2_max_size = "${var.asg_ec2_max_size}"
-    hosted_zone_name = "${var.hosted_zone_name}"
+    poc_route53_zone = "${module.networking.poc_route53_zone}"
     health_check_path = "${var.health_check_path}"
 }

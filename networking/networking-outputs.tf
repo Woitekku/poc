@@ -31,3 +31,7 @@ output "poc_rds_sg" {
 output "poc_alb_tg" {
     value = "${aws_alb_target_group.poc-alb-tg}"
 }
+
+output "poc_route53_zone" {
+    value = "${aws_route53_zone.poc-route53-zone}""
+}
