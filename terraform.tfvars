@@ -1,0 +1,13 @@
+aws_profile = "cloudificationpoc"
+aws_region = "eu-west-1"
+public_key_path = "id_rsa.pub"
+hosted_zone_name = "poc.ging3rlab.com"
+delegation_set = "N98ELBD1L85SP"
+vpc_cidr = "10.0.0.0/16"
+accessip = "0.0.0.0/0"
+database_name = "pocrds"
+database_username = "pocrds"
+ami = "ami-ebd02392"
+instance_type = "t2.micro"
+asg_ec2_min_size = 3
+asg_ec2_max_size = 5
