@@ -106,18 +106,18 @@ resource "aws_route53_record" "poc-route53-record" {
 
 
 # Bastion host
-resource "aws_instance" "poc-bastion" {
-  ami = "${var.ami}"
-  instance_type = "${var.instance_type}"
-  key_name = "${aws_key_pair.poc-keys.id}"
-  subnet_id = "${var.poc_pub_sn[0].id}"
-  security_groups = ["${var.poc_bastion_sg.id}"]
-  associate_public_ip_address = true
-  
-  tags = {
-    Name = "poc-bastion"
-  }
-}
+#resource "aws_instance" "poc-bastion" {
+#  ami = "${var.ami}"
+#  instance_type = "${var.instance_type}"
+#  key_name = "${aws_key_pair.poc-keys.id}"
+#  subnet_id = "${var.poc_pub_sn[0].id}"
+#  security_groups = ["${var.poc_bastion_sg.id}"]
+#  associate_public_ip_address = true
+#  
+#  tags = {
+#    Name = "poc-bastion"
+#  }
+#}
 
 # Provisioning template
 data "template_file" "provisioning" {
