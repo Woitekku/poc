@@ -1,0 +1,8 @@
+.terraform/
+.c9/
+jenkins-2.176.3-1.1.noarch.rpm
+terraform_0.12.6_linux_amd64.zip
+tfplan
+tfdestroyplan
+terraform.tfstate
+terraform.tfstate.backup
