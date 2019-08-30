@@ -67,7 +67,7 @@ resource "aws_route53_health_check" "poc-route53-health-check" {
 
 resource "aws_route53_record" "poc-route53-record" {
   zone_id = "${var.poc_route53_zone.zone_id}"
-  name = "${var.hosted_zone_name}"
+  name = "${var.bastion_hostname}"
   type = "A"
   ttl = "60"
 

@@ -55,4 +55,5 @@ module "compute" {
     asg_ec2_max_size = "${var.asg_ec2_max_size}"
     poc_route53_zone = "${module.networking.poc_route53_zone}"
     health_check_path = "${var.health_check_path}"
+    bastion_hostname = "${var.bastion_hostname"}
 }
